@@ -1,6 +1,6 @@
 # gt_surveillance
 
-download bam files from TCGA.
+download bam files from CGHub.
 
 ## Dependency
 
@@ -25,7 +25,7 @@ git clone https://github.com/aokad/gt_surveillance.git
 
 ```
 export DRMAA_LIBRARY_PATH=/geadmin/N1GE/lib/lx-amd64/libdrmaa.so.1.0
-python {install path}/gt_surveillance.py {output root path} {key file} {manifest download from TCGA}
+python {install path}/gt_surveillance.py {output root path} {key file} {manifest download from CGHub}
 ```
 
 ## Output directory
