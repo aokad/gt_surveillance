@@ -84,15 +84,16 @@ def qsub_process(name, output_dir, key, manifest, config):
     s = drmaa.Session()
 
     return_val = 1
-    for i in range(5):
+    retry_max = config.getint('JOB_CONTROL', 'retry_max')
+    for i in range(retry_max):
         
         s.initialize()
         jt = s.createJobTemplate()
         jt.jobName = "gt_surveilance"
         jt.outputPath = ':' + output_dir + '/log'
         jt.errorPath = ':' + output_dir + '/log'
-        jt.remoteCommand = script_path
         jt.nativeSpecification = config.get('JOB_CONTROL', 'qsub_option')
+        jt.remoteCommand = script_path
 
         jobid = s.runJob(jt)
     
